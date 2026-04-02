@@ -3,88 +3,65 @@ body {
     font-family: Arial;
     color: white;
     overflow-x: hidden;
+    background: black;
 }
 
 /* 🌈 Animated Background */
 .hero {
     height: 100vh;
-    background: linear-gradient(270deg, #ff00cc, #3333ff, #00ffcc);
-    background-size: 600% 600%;
-    animation: gradientMove 10s ease infinite;
-
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center; 
-    background: url("bg.jpg");
-background-size: cover;
-animation: zoom 15s infinite alternate;
-@keyframes zoom {
-    from {transform: scale(1);}
-    to {transform: scale(1.2);}
-}
+
+    background: linear-gradient(270deg, #ff00cc, #3333ff, #00ffcc);
+    background-size: 600% 600%;
+    animation: bgMove 10s infinite;
 }
 
-@keyframes gradientMove {
-    0% {background-position:0% 50%;}
-    50% {background-position:100% 50%;}
-    100% {background-position:0% 50%;}
+@keyframes bgMove {
+    0% {background-position:0%}
+    50% {background-position:100%}
+    100% {background-position:0%}
 }
 
-/* ✨ Text Animation */
-.title {
-    font-size: 45px;
-    animation: fadeUp 2s ease;
-}
-
-.subtitle {
-    animation: fadeUp 3s ease;
+/* 🧊 Glassmorphism */
+.glass {
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    animation: fadeUp 2s;
 }
 
 @keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from {opacity:0; transform: translateY(50px);}
+    to {opacity:1; transform: translateY(0);}
 }
 
 /* 🔘 Button */
-.btn {
-    padding: 10px 20px;
+button {
     margin-top: 20px;
+    padding: 10px 20px;
     border: none;
     cursor: pointer;
     transition: 0.3s;
 }
 
-.btn:hover {
+button:hover {
     transform: scale(1.2);
-    box-shadow: 0 0 20px white;
 }
 
-/* 📦 CARDS */
-.cards {
+/* 🎬 Story Sections */
+.story {
+    height: 100vh;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    font-size: 40px;
 }
 
-.card {
-    padding: 20px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 10px;
-    transition: 0.4s;
-}
-
-.card:hover {
-    transform: translateY(-10px) scale(1.05);
-}
-
-/* 🎬 Scroll Animation */
+/* Scroll Animation */
 .hidden {
     opacity: 0;
     transform: translateY(50px);
@@ -94,4 +71,30 @@ animation: zoom 15s infinite alternate;
 .show {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* 💫 Floating Shapes */
+.shape {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    animation: float 10s infinite;
+}
+
+@keyframes float {
+    from {transform: translateY(0);}
+    to {transform: translateY(-800px);}
+}
+
+/* 🖱 Cursor Glow */
+.cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: difference;
 }
